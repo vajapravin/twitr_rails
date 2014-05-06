@@ -1,0 +1,31 @@
+<strong>Listing creators</strong>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @creators.each do |creator| %>
+      <tr>
+        <td><%= creator.username %></td>
+        <td><%= creator.email %></td>
+        <td><%= creator.phone %></td>
+        <td><%= link_to 'Show', "/creators/#{creator.id}" %></td>
+        <td><%= link_to 'Edit', "/creators/#{creator.id}/edit" %></td>
+        <td><%= link_to 'Destroy', "/creators/#{creator.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Creator', creators_new_path %>

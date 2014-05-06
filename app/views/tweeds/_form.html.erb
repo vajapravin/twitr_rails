@@ -1,0 +1,25 @@
+<%= form_for(@tweed) do |f| %>
+  <% if @tweed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tweed.errors.count, "error") %> prohibited this tweed from being saved:</h2>
+
+      <ul>
+      <% @tweed.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :creator_id %><br>
+    <%= f.number_field :creator_id %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

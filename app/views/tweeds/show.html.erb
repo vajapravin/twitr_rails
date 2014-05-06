@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @tweed.creator_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @tweed.content %>
+</p>
+
+<%= link_to 'Edit', edit_tweed_path(@tweed) %> |
+<%= link_to 'Back', tweeds_path %>

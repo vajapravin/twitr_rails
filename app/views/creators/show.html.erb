@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @creator.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @creator.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @creator.phone %>
+</p>
+
+<%= link_to 'Edit', edit_creator_path(@creator) %> |
+<%= link_to 'Back', creators_path %>

@@ -1,0 +1,29 @@
+<h1>Listing tweeds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Creator</th>
+      <th>Content</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tweeds.each do |tweed| %>
+      <tr>
+        <td><%= tweed.creator_id %></td>
+        <td><%= tweed.content %></td>
+        <td><%= link_to 'Show', tweed %></td>
+        <td><%= link_to 'Edit', edit_tweed_path(tweed) %></td>
+        <td><%= link_to 'Destroy', tweed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tweed', new_tweed_path %>

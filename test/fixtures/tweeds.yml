@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: tweeds
+#
+#  id         :integer          not null, primary key
+#  creator_id :integer
+#  content    :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  creator_id: 1
+  content: MyText
+
+two:
+  creator_id: 1
+  content: MyText
