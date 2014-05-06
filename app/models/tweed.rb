@@ -10,4 +10,5 @@
 #
 
 class Tweed < ActiveRecord::Base
+	belongs_to :creator
 end

@@ -1,6 +1,31 @@
 <h1>Editing tweed</h1>
 
-<%= render 'form' %>
+<%= form_for(@tweed, url: "/tweeds/#{@tweed.id}", method: :put) do |f| %>
+  <% if @tweed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tweed.errors.count, "error") %> prohibited this tweed from being saved:</h2>
 
-<%= link_to 'Show', @tweed %> |
+      <ul>
+      <% @tweed.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :creator_id %><br>
+    <%= f.select :creator_id, options_for_select(Creator.all.map {|c| [c.username, c.id] }), {prompt: 'Select Creator'}, {required: true, class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content %><br>
+    <%= f.text_area :content, class: 'form-control', rows: 10, required: true, placeholder: 'Type your content here..,' %>
+  </div>
+  <div class="actions">
+    <%= f.submit :Save, class: 'btn btn-primary' %>
+    <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+  </div>
+<% end %>
+
+
 <%= link_to 'Back', tweeds_path %>

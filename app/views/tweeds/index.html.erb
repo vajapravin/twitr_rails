@@ -1,5 +1,10 @@
+<% @tweeds.each do |tweed| %>
+
   <div class="jumbotron">
-    <h2>Jumbotron heading</h2>
-    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    <div class="time pull-right">06-May 2014 04:10 PM</div>
+    <h2><%= tweed.creator.username %></h2>
+    <p class="lead"><%= tweed.content.html_safe rescue '' %></p>
+    <div class="time pull-left"><%= tweed.created_at.strftime("%d-%M %Y") %></div>
+    <div class="time pull-right"><%= link_to "<span class='glyphicon glyphicon-pencil'></span> Edit".html_safe, "/tweeds/#{tweed.id}/edit" %> | <%= link_to "<span class='glyphicon glyphicon-remove-sign'></span> Remove".html_safe, "/tweeds/#{tweed.id}", method: :delete, confirm: 'Do you want to remove?' %></div>
   </div>
+
+<% end %>

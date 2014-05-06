@@ -19,6 +19,7 @@ class CreatorsController < ApplicationController
 
   # GET /creators/1/edit
   def edit
+    @creator = Creator.find(params[:id])
   end
 
   # POST /creators
@@ -28,7 +29,7 @@ class CreatorsController < ApplicationController
 
     respond_to do |format|
       if @creator.save
-        format.html { redirect_to @creator, notice: 'Creator was successfully created.' }
+        format.html { redirect_to creators_path, notice: 'Creator was successfully created.' }
         format.json { render action: 'show', status: :created, location: @creator }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class CreatorsController < ApplicationController
   def update
     respond_to do |format|
       if @creator.update(creator_params)
-        format.html { redirect_to @creator, notice: 'Creator was successfully updated.' }
+        format.html { redirect_to creators_path, notice: 'Creator was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -19,6 +19,7 @@ class TweedsController < ApplicationController
 
   # GET /tweeds/1/edit
   def edit
+    @tweed = Tweed.find(params[:id])
   end
 
   # POST /tweeds
@@ -28,7 +29,7 @@ class TweedsController < ApplicationController
 
     respond_to do |format|
       if @tweed.save
-        format.html { redirect_to @tweed, notice: 'Tweed was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Tweed was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tweed }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class TweedsController < ApplicationController
   def update
     respond_to do |format|
       if @tweed.update(tweed_params)
-        format.html { redirect_to @tweed, notice: 'Tweed was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Tweed was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -54,9 +55,10 @@ class TweedsController < ApplicationController
   # DELETE /tweeds/1
   # DELETE /tweeds/1.json
   def destroy
+    @tweed = Tweed.find(params[:id])
     @tweed.destroy
     respond_to do |format|
-      format.html { redirect_to tweeds_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end

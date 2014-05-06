@@ -11,15 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :creator_id %><br>
-    <%= f.number_field :creator_id %>
+    <%= f.select :creator_id, options_for_select(Creator.all.map {|c| [c.username, c.id] }), {prompt: 'Select Creator'}, {required: true, class: 'form-control'} %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, class: 'form-control', rows: 10, required: true, placeholder: 'Type your content here..,' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :Save, class: 'btn btn-primary' %>
+    <%= link_to 'Back', root_path, class: 'btn btn-default' %>
   </div>
 <% end %>
